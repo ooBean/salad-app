@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import WelcomeSvg from '@/assets/svg/welcome.svg';
+import introduce from '@/assets/images/introduce.png';
+import shadow from '@/assets/images/shadow.png';
 import Button from '@/components/Button';
 import './index.less';
 
@@ -14,11 +15,12 @@ const Welcome: React.FC = () => {
   return (
     <div className="welcome-container">
       <div className="welcome-image">
-        <img src={WelcomeSvg} alt="Welcome" />
+        <img src={introduce} alt="Welcome" />
+        <img src={shadow} alt="Shadow" />
       </div>
       <div className="welcome-content">
-        <h1>Get The Freshest Fruit Salad Combo</h1>
-        <p>We deliver the best and freshest fruit salad in town. Order for a combo today!!</p>
+        <p className='title'>Get The Freshest Fruit Salad Combo</p>
+        <p className='description'>We deliver the best and freshest fruit salad in town. Order for a combo today!!!</p>
         <Button onClick={handleContinue} className="welcome-button">
           Let's Continue
         </Button>
