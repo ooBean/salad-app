@@ -3,7 +3,9 @@ import melonFruitSalad from '@/assets/images/salad/melon-fruit-salad.png';
 import Button from '@/components/Button';
 import like from '@/assets/svg/like.svg';
 import circleAdd from '@/assets/svg/circle-add.svg';
+import minus from '@/assets/svg/minus.svg';
 import add from '@/assets/svg/add.svg';
+import arrow from '@/assets/svg/arrow.svg';
 
 import './index.less';
 
@@ -11,20 +13,32 @@ const ProductDetail: React.FC = () => {
   return (
     <div className="product-detail-container">
       <div className="product-image-container">
-        <button className="go-back-button">
-          &lt; Go back
-        </button>
+        <div className='go-back'>
+          <img src={arrow} alt="arrow" />
+          <span>Go back</span>
+        </div>
         <img src={melonFruitSalad} alt="Quinoa Fruit Salad" />
       </div>
 
       <div className="product-info-container">
         <h1 className="product-name">Quinoa Fruit Salad</h1>
-        <div className="quantity-selector">
-          <button>-</button>
-          <span>1</span>
-          <button>+</button>
+        <div className='product-info'>
+          <div className="quantity-selector">
+            <div className='add'>
+              {/* 圆圈按钮，内部的“加号”居中显示 */}
+              <img className="circle-icon" src={circleAdd} alt="circle add" />
+              <img className="inner-icon" src={add} alt="add" />
+            </div>
+            <span className="qty-number">1</span>
+            <div className='minus'>
+              <img className="circle-icon" src={circleAdd} alt="circle add" />
+              <img className="inner-icon" src={minus} alt="minus" />
+            </div>
+          </div>
+          <div className="price">₦ 2,000</div>
+
         </div>
-        <div className="price">₦ 2,000</div>
+
         <div className="combo-contains">This combo contains:</div>
         <div className="ingredients">
           <span>Red Quinoa</span>
