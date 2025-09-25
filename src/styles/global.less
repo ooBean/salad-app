@@ -1,9 +1,11 @@
 @import "variables.less";
 
+
 html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%; /* 1. 确保 html 和 body 占满视口高度 */
   font-family: @font-family;
   font-size: @font-size-base;
   line-height: @line-height-base;
@@ -13,13 +15,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+#root {
+  height: 100%; /* 2. 确保 React 根节点也占满高度 */
+}
+
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Add comprehensive resets for common elements */
+
+
 p,
 ul,
 ol,
@@ -33,10 +42,14 @@ dd {
   padding: 0;
 }
 
+
+
 ul,
 ol {
   list-style: none;
 }
+
+
 
 /* 链接样式 */
 a {
@@ -48,11 +61,15 @@ a {
   }
 }
 
+
+
 /* 页面容器：保证左右 24px 边距 */
 .page-container {
   padding-left: @page-padding-x;
   padding-right: @page-padding-x;
 }
+
+
 
 /* 标题 */
 h1,
@@ -61,11 +78,12 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  /* Changed to a full margin reset */
+  margin: 0; /* Changed to a full margin reset */
   font-weight: 600;
   color: @text-color;
 }
+
+
 
 /* 按钮通用 */
 button,
@@ -104,6 +122,8 @@ button:active,
   box-shadow: none !important;
 }
 
+
+
 /* 输入框 */
 input,
 .ant-input {
@@ -117,4 +137,39 @@ input,
     border-color: @primary-color;
     outline: none;
   }
+}
+
+
+
+/* patch: 全局确保根容器填满宽度，避免被父级容器约束 */
+#root,
+.app,
+#app,
+.container { /* 3. 从这里移除 .cart-container */
+  width: 100%;
+  max-width: 100vw;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 0 !important; /* 强制移除任何可能存在的 padding */
+}
+
+
+
+/* 全局媒体元素等比例缩放 */
+img,
+picture,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+/* 便捷的等比例占位容器（可按需在页面中使用） */
+.ratio-16-9 {
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }
