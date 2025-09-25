@@ -1,0 +1,175 @@
+@import '@/styles/variables.less';
+@import '@/styles/mixins.less';
+
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: @primary-color;
+    box-sizing: border-box;
+
+}
+
+
+.cart-header {
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-bottom: 36px;
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    flex-shrink: 0;
+
+    .go-back {
+        margin-right: 32px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        color: #27214D;
+        background-color: white;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .basket-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: white;
+    }
+}
+
+.cart-body {
+    flex-grow: 1;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .thumb {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-right: 16px;
+        flex-shrink: 0;
+        /* background-color: #fafafa;  <- 移除此行，因为背景色已由 style 属性提供 */
+        padding: 10px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .item-info {
+        flex-grow: 1;
+        min-width: 0;
+
+        .item-name {
+            font-weight: 500;
+            font-size: 16px;
+            color: #27214D;
+        }
+
+        .item-sub {
+            font-size: 14px;
+            color: #8e8e93;
+            margin-top: 4px;
+        }
+
+        .item-price {
+            font-weight: 600;
+            font-size: 16px;
+            color: @primary-color;
+            margin-top: 8px;
+        }
+    }
+
+    .item-actions {
+        flex-shrink: 0;
+        margin-left: 16px;
+        position: relative; /* 1. 设置为定位上下文 */
+        width: 32px;        /* 2. 给容器一个固定尺寸 */
+        height: 32px;
+        cursor: pointer;
+
+        .circle-bg,
+        .minus-icon {
+            position: absolute; /* 3. 内部图片都绝对定位 */
+        }
+
+        .circle-bg {
+            width: 100%; /* 背景图撑满容器 */
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .minus-icon {
+            top: 50%; /* 图标居中 */
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.cart-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    background: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+
+    .total-label {
+        font-size: 18px;
+        font-weight: 500;
+        color: #27214D;
+
+        .total-amount {
+            font-weight: 700;
+            margin-left: 8px;
+        }
+    }
+
+    .checkout-btn {
+        background-color: @primary-color;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 16px 32px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
