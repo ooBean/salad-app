@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import arrow from '@/assets/svg/arrow.svg';
 import melonFruitSalad from '@/assets/images/salad/melon-fruit-salad.png';
 import minus from '@/assets/svg/minus.svg';
 import circleAdd from '@/assets/svg/circle-add.svg';
+import PaymentModal from '@/components/PaymentModal';
 
 import './index.less';
 
@@ -16,6 +18,15 @@ type CartItem = {
 };
 
 const Cart: React.FC = () => {
+  const navigate = useNavigate();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  useEffect(() => {
+    // When the component unmounts, ensure the modal is closed
+    return () => {
+      setIsModalVisible(false);
+    };
+  }, []);
   // 示例数据：可替换为实际购物车数据
   const items: CartItem[] = [
     // 2. 根据图片为每个商品添加背景色
@@ -31,7 +42,7 @@ const Cart: React.FC = () => {
     <div className="cart-container">
       {/* 顶部橙色头部 */}
       <div className="cart-header">
-        <div className="go-back">
+        <div className="go-back" onClick={() => navigate(-1)}>
           <img src={arrow} alt="arrow" />
           <span>Go back</span>
         </div>
@@ -65,9 +76,13 @@ const Cart: React.FC = () => {
             Total
             <span className="total-amount"> ₦{total}</span>
           </div>
-          <button className="checkout-btn">Checkout</button>
+          <button className="checkout-btn" onClick={() => setIsModalVisible(true)}>Checkout</button>
         </div>
       </div>
+      <PaymentModal 
+        visible={isModalVisible} 
+        onClose={() => setIsModalVisible(false)} 
+      />
     </div>
   );
 };

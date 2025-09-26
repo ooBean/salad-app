@@ -1,0 +1,146 @@
+@import '@/styles/variables.less';
+
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  text-align: left  ;
+}
+
+.payment-modal-container {
+  width: 100%;
+  max-width: 375px;
+  background-color: white;
+  border-radius: 24px 24px 0 0;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .close-btn {
+    position: absolute;
+    top: -10px; // As per design
+    right: 6%;
+    transform: translateX(50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: black;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+  }
+
+  .modal-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #27214D;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .form-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+
+    label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #27214D;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      height: 56px;
+      background-color: #F3F1F1;
+      border: none;
+      border-radius: 10px;
+      padding: 0 16px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+  }
+
+  .form-row {
+    display: flex;
+    gap: 24px;
+
+    .form-group {
+      flex: 1;
+    }
+  }
+
+  .footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+
+  .footer-btn {
+    width: 143px;
+    height: 56px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0 10px; // Adjust padding to prevent text wrapping
+
+    &.pay-on-delivery {
+      background-color: #FFF2E5;
+      color: #FFA451;
+      border: 1px solid #FFA451;
+    }
+
+    &.pay-with-card {
+      background-color: #FFA451;
+      color: white;
+      border: none;
+    }
+  }
+
+  .complete-order-btn {
+    width: 242px;
+    height: 56px;
+    border-radius: 10px;
+    background-color: #FFA451;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin-top: 24px;
+    align-self: center;
+  }
+}
