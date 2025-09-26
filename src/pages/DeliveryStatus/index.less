@@ -1,0 +1,133 @@
+@import '@/styles/variables.less';
+@import '@/styles/mixins.less';
+
+.delivery-status-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: @primary-color;
+
+    .header {
+        padding: 24px 24px 36px;
+        color: white;
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .go-back {
+            position: absolute;
+            left: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            color: #27214D;
+            padding: 6px 8px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-weight: 500;
+           
+            
+        }
+
+        .title {
+            font-size: 24px;
+             margin-left: 32px;
+             color: #FFFFFF;
+            font-weight: 550;
+        }
+    }
+
+    .status-body {
+        flex-grow: 1;
+        background-color: white;
+        padding: 40px 24px 24px;
+        position: relative;
+    }
+
+    .status-item {
+        display: flex;
+        align-items: center;
+        
+        margin-bottom: 0px;
+        position: relative;
+
+        .icon {
+            width: 64px;
+            height: 65px;
+            margin-right: 16px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            color: #27214D;
+            margin: 0;
+        }
+
+        span {
+            font-size: 14px;
+            color: #8e8e93;
+        }
+
+        .tick {
+            margin-left: auto;
+            height: 24px;
+            width: 24px;
+        }
+
+        .dots-icon {
+            margin-left: auto;
+            width: 40px;
+            height: 8px;
+        }
+
+        .contact {
+            margin-left: auto;
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    .line-connector {
+        height: 40px;
+        margin-left: 36px; // Consistent alignment
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .status-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .map-image-container {
+        width: calc(100% - 32px);
+        margin: 0 16px 0;
+        border-radius: 10px;
+        position: relative;
+
+        .map-image {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+    }
+
+    .success-icon {
+        width: 65px;
+        height: 64px;
+        background-color: #F1FEF8;
+        border-radius: 10px;
+
+        .icon {
+            margin-top: 12px;
+            margin-left: 13px;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    
+}
