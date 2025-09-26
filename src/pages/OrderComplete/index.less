@@ -1,0 +1,58 @@
+@import '@/styles/variables.less';
+@import '@/styles/mixins.less';
+
+.order-complete-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+    text-align: center;
+
+    .tick-image {
+        width: 164px;
+        height: 164px;
+        margin-bottom: 40px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #27214D;
+        margin-bottom: 12px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        color: #5D577E;
+        margin-bottom: 48px;
+        max-width: 240px;
+    }
+
+    .track-order-btn {
+        padding: 16px 32px;
+        background-color: @primary-color;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 24px;
+        cursor: pointer;
+    }
+
+    .continue-shopping-btn {
+        width: 100%;
+        max-width: 200px;
+        padding: 16px;
+        background-color: transparent;
+        color: @primary-color;
+        font-size: 16px;
+        font-weight: 600;
+        border: 1px solid @primary-color !important;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
