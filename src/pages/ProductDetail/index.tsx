@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import melonFruitSalad from '@/assets/images/salad/melon-fruit-salad.png';
 import Button from '@/components/Button';
 import like from '@/assets/svg/like.svg';
@@ -10,10 +11,11 @@ import arrow from '@/assets/svg/arrow.svg';
 import './index.less';
 
 const ProductDetail: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="product-detail-container">
       <div className="product-image-container">
-        <div className='go-back'>
+        <div className='go-back' onClick={() => navigate('/home')}>
           <img src={arrow} alt="arrow" />
           <span>Go back</span>
         </div>
@@ -38,6 +40,8 @@ const ProductDetail: React.FC = () => {
           <div className="price">₦ 2,000</div>
 
         </div>
+
+
 
         <div className="combo-contains">This combo contains:</div>
         <div className="ingredients">
