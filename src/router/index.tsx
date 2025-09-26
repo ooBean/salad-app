@@ -5,7 +5,6 @@ import Auth from '@/pages/Auth';
 import Home from '@/pages/Home';
 import ProductDetail from '@/pages/ProductDetail';
 import Cart from '@/pages/Cart';
-import Checkout from '@/pages/Checkout';
 import OrderComplete from '@/pages/OrderComplete';
 import DeliveryStatus from '@/pages/DeliveryStatus';
 import Profile from '@/pages/Profile';
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
   {
     path: '/cart',
     element: <Cart />,
-  },
-  {
-    path: '/checkout',
-    element: <Checkout />,
   },
   {
     path: '/order-complete',
