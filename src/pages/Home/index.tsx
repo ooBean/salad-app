@@ -1,62 +1,36 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './index.less';
 import menu from '@/assets/svg/menu.svg';
 import search from '@/assets/svg/search.svg';
 import filter from '@/assets/svg/filter.svg';
 import shoppingBasket from '@/assets/svg/shopping-basket.svg';
 import ProductCard from '@/components/ProductCard';
+import { hottestProducts, ProductCategory, ProductTag } from '@/store/product';
 
-// salad images
-import honeyLimeCombo from '@/assets/images/salad/honey-lime-combo.png';
-import berryMangoCombo from '@/assets/images/salad/berry-mango-combo.png';
-import quinoaFruitSalad from '@/assets/images/salad/quinoa-fruit-salad.png';
-import tropicalFruitSalad from '@/assets/images/salad/tropical-fruit-salad.png';
-import melonFruitSalad from '@/assets/images/salad/melon-fruit-salad.png';
-
-import avocadoChickenSalad from '@/assets/images/salad/avocado-chicken-salad.png'
-import cheeseSalad from '@/assets/images/salad/cheese-salad.png'
-import chickenBreastSalad from '@/assets/images/salad/chicken-breast-salad.png'
-import cucumberTomatoSalad from '@/assets/images/salad/cucumber-tomato-salad.png'
-import orangeAvocadoSalad from '@/assets/images/salad/orange-avocado-salad.png'
-import salmonSalad from '@/assets/images/salad/salmon-salad.png'
- 
-
-const recommendedCombos = [
-  { id: 1, name: 'Honey lime combo', price: 2000, image: honeyLimeCombo },
-  { id: 2, name: 'Berry mango combo', price: 2000, image: berryMangoCombo },
-  { id: 3, name: 'Cucumber tomato salad', price: 2000, image: cucumberTomatoSalad },
-  { id: 4, name: 'Orange avocado salad', price: 2000, image: orangeAvocadoSalad },
-];
-
-// 现在的数据包含 tag 与 bgColor，用于筛选和背景颜色
-const hottestProducts = [
-  { id: 1, name: 'Quinoa fruit salad', price: 10000, image: quinoaFruitSalad, bgColor: '#FEFCF1', tag: 'Hottest' },
-  { id: 2, name: 'Tropical fruit salad', price: 10000, image: tropicalFruitSalad, bgColor: '#FDF4F4', tag: 'Popular' },
-  { id: 3, name: 'Melon fruit salad', price: 10000, image: melonFruitSalad, bgColor: '#F1EFF7', tag: 'New Combo' },
-  { id: 4, name: 'Avocado chicken', price: 10000, image: avocadoChickenSalad, bgColor: '#F1EFF7', tag: 'New Combo' },
-  { id: 5, name: 'Cheese salad', price: 10000, image: cheeseSalad, bgColor: '#FDF4F4', tag: 'Popular' },
-  { id: 6, name: 'Chicken breast', price: 10000, image: chickenBreastSalad, bgColor: '#FEFCF1', tag: 'Hottest' },
-  { id: 7, name: 'Orange avocado', price: 10000, image: orangeAvocadoSalad, bgColor: '#FDF4F4', tag: 'Popular' },
-  { id: 8, name: 'Salmon salad', price: 10000, image: salmonSalad, bgColor: '#F1EFF7', tag: 'New Combo' },
-];
-
-const categories = ['All', 'Salad Combo', 'Berry Combo', 'Mango'];
+const categories = Object.values(ProductCategory);
 
 // 热门标签配置
 const hottestTabs = [
-  { key: 'Hottest', label: 'Hottest' },
-  { key: 'Popular', label: 'Popular' },
-  { key: 'New Combo', label: 'New Combo' },
+  { key: ProductTag.Hottest, label: 'Hottest' },
+  { key: ProductTag.Popular, label: 'Popular' },
+  { key: ProductTag.NewCombo, label: 'New Combo' },
 ] as const;
 
 type HotTabKey = typeof hottestTabs[number]['key'];
 
 const Home: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [activeHotTab, setActiveHotTab] = useState<HotTabKey>('Hottest');
+  const navigate = useNavigate();
+  const [activeCategory, setActiveCategory] = useState<ProductCategory>(ProductCategory.Recommended);
+  const [activeHotTab, setActiveHotTab] = useState<HotTabKey>(ProductTag.Hottest);
 
-  // 根据当前活跃标签过滤商品
-  const visibleHottest = hottestProducts.filter((p) => p.tag === activeHotTab);
+  // 根据当前活跃的热门标签过滤商品
+  const visibleHottest = hottestProducts.filter(p => p.tag === activeHotTab);
+
+  // 根据当前活跃的分类过滤商品，并移除 bgColor 属性
+  const visibleProducts = hottestProducts
+    .filter(p => activeCategory === ProductCategory.All || p.categories.includes(activeCategory))
+    .map(({ bgColor, ...rest }) => rest);
 
   return (
     <div className="home-container">
@@ -65,7 +39,7 @@ const Home: React.FC = () => {
           <img src={menu} alt="Menu" />
           <h2>Welcome, Chris.</h2>
         </div>
-        <div className="shopping-basket-wrapper">
+        <div className="shopping-basket-wrapper" onClick={() => navigate('/cart')}>
           <img src={shoppingBasket} alt="Shopping Basket" />
         </div>
       </header>
@@ -91,9 +65,9 @@ const Home: React.FC = () => {
       </div>
 
       <section className="product-section recommended-section">
-        <h3 className="section-title recommended-title">Recommended Combo</h3>
+        <h3 className="section-title recommended-title">{activeCategory}</h3>
         <div className="product-list">
-          {recommendedCombos.map((product) => (
+          {visibleProducts.map((product) => (
             <ProductCard key={product.id} {...product} variant="large" />
           ))}
         </div>

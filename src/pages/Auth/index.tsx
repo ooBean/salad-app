@@ -25,7 +25,7 @@ const Auth: React.FC = () => {
         <h1>What is your firstname?</h1>
         <input
           type="text"
-          placeholder="Chris"
+          placeholder="Bean"
           className="auth-input"
           value={name}
           onChange={(e) => setName(e.target.value)}
