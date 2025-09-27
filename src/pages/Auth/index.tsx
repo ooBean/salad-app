@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import './index.less';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setName as setReduxName } from '@/store/user';
 import register from '@/assets/images/register.png';
 import shadow from '@/assets/images/shadow.png';
 import Button from '@/components/Button';
 
 const Auth: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
+  const [error, setError] = useState('');
 
   const handleStartOrdering = () => {
     if (name.trim()) {
+      dispatch(setReduxName(name));
       navigate('/home');
+    } else {
+      setError('Name cannot be empty.');
     }
   };
 
@@ -28,8 +35,14 @@ const Auth: React.FC = () => {
           placeholder="Bean"
           className="auth-input"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+            if (error) {
+              setError('');
+            }
+          }}
         />
+        {error && <p className="error-message">{error}</p>}
         <Button onClick={handleStartOrdering} className="auth-button">
           Start Ordering
         </Button>
