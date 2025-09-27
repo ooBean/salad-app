@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './index.less';
 
@@ -8,6 +9,7 @@ type PaymentModalProps = {
 };
 
 const PaymentModal: React.FC<PaymentModalProps> = ({ visible, onClose }) => {
+  const navigate = useNavigate();
   const [view, setView] = useState<'card' | 'delivery'>('card');
 
   if (!visible) {
@@ -17,6 +19,11 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ visible, onClose }) => {
   const handleClose = () => {
     onClose();
     setView('card'); // Reset view when closing
+  };
+
+  const handleOrder = () => {
+    handleClose();
+    navigate('/order-complete');
   };
 
   return (
@@ -60,8 +67,8 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ visible, onClose }) => {
               <input id="phone-number" type="text" placeholder="09090909090" />
             </div>
             <div className="footer-buttons">
-              <button className="footer-btn pay-on-delivery">Pay on delivery</button>
-              <button className="footer-btn pay-with-card">Pay with card</button>
+              <button className="footer-btn pay-on-delivery" onClick={handleOrder}>Pay on delivery</button>
+              <button className="footer-btn pay-with-card" onClick={handleOrder}>Pay with card</button>
             </div>
           </div>
         )}
