@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { removeItem } from '@/store/cart';
+import { incrementQuantity, decrementQuantity } from '@/store/cart';
 import { motion, AnimatePresence } from 'framer-motion'; // 引入 framer-motion
 import arrow from '@/assets/svg/arrow.svg';
 import minus from '@/assets/svg/minus.svg';
 import circleAdd from '@/assets/svg/circle-add.svg';
 import PaymentModal from '@/components/PaymentModal';
 import beanCat from '@/assets/images/bean-cat.jpg';
-
+import add from '@/assets/svg/add.svg';
 import './index.less';
 
 const Cart: React.FC = () => {
@@ -25,9 +25,6 @@ const Cart: React.FC = () => {
     };
   }, []);
 
-  const handleRemoveItem = (id: string) => {
-    dispatch(removeItem(id));
-  };
 
   const totalValue = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const total = totalValue.toLocaleString();
@@ -71,9 +68,17 @@ const Cart: React.FC = () => {
                     <div className="item-sub">{item.quantity} packs</div>
                     <div className="item-price">₦{item.price.toLocaleString()}</div>
                   </div>
-                  <div className="item-actions" onClick={() => handleRemoveItem(item.id)}>
-                    <img src={circleAdd} alt="circle" className='circle-bg' />
-                    <img src={minus} alt="minus" className='minus-icon' />
+                  <div className="item-actions">
+                    <div className="quantity-control">
+                        <div className="action-button" onClick={() => dispatch(decrementQuantity(item.id))}>
+                            <img src={circleAdd} alt="circle" className='circle-bg' />
+                            <img src={minus} alt="minus" className='minus-icon' />
+                        </div>
+                        <div className="action-button" onClick={() => dispatch(incrementQuantity(item.id))}>
+                            <img src={circleAdd} alt="circle" className='circle-bg' />
+                            <img src={add} alt="add" className='add-icon' />
+                        </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
