@@ -12,234 +12,222 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  /* 确保内容垂直排列 */
-}
 
-.product-image-container {
-  position: relative;
-  height: 270px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 32px;
-  box-sizing: border-box;
-
-  img {
-    width: 176px;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .go-back {
-    position: absolute;
-    top: 20px;
-    left: 24px;
+  .product-image-container {
+    position: relative;
+    height: 270px;
     display: flex;
-    align-items: center;
-    gap: 8px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    color: #27214D;
-    background-color: white;
-    border-radius: 100px;
-    img{
-      width: 10px;
-      height: 20px;
-      margin-left: 4px;
-    }
-    span {
-      line-height: 20px;
-    }
-  }
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 32px;
+    box-sizing: border-box;
 
-  .go-back-button,
-  .go-back {
-    padding: 6px 8px;
-  }
-}
-
-.product-info-container {
-  background-color: white;
-  border-radius: 24px 24px 0 0;
-  padding: 24px;
-  position: relative;
-  flex-grow: 1;
-  /* 让内容区域自适应高度 */
-  display: flex;
-  flex-direction: column;
-
-  .product-info {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #F3F1F1;
-  }
-
-  .product-name {
-    margin-top: 40px;
-    font-size: 24px;
-    font-weight: 550;
-    color: #27214D;
-    margin-bottom: 16px;
-  }
-
-  .quantity-selector {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    .add {
-      position: relative;
-      width: 32px;
-      height: 32px;
-
-      .circle-icon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 32px;
-        height: 32px;
-      }
-
-      .inner-icon {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 16px;
-        height: 16px;
-        transform: translate(-50%, -50%);
-      }
+    img {
+      width: 176px;
+      height: auto;
+      object-fit: contain;
     }
 
-    /* 新增：镜像 minus 的圆圈按钮结构，保持对称性 */
-    .minus {
-      position: relative;
-      width: 32px;
-      height: 32px;
-
-      .circle-icon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 32px;
-        height: 32px;
-      }
-
-      .inner-icon {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 16px;
-        height: 16px;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    /* 新增：让数量数字左右各有 24px的外边距 */
-    .qty-number {
-      margin-left: 24px;
-      margin-right: 24px;
-      font-size: 24px;
-    }
-  }
-
-  .price {
-    font-size: 24px;
-    font-weight: bold;
-    color: #27214D;
-    // margin-bottom: 24px;
-  }
-
-  .combo-contains {
-    font-size: 18px;
-    color: #27214D;
-    margin-bottom: 16px;
-    line-height: 30px;
-    margin-top: 16px;
-    position: relative; // 为伪元素定位参考
-  }
-
-  .combo-contains::after {
-    content: '';
-    display: block;
-    width: 56px;
-    height: 2px;
-    background: @primary-color;
-    margin-top: 8px;
-  }
-
-  .ingredients {
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
-    gap: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #F3F1F1;
-    span {
-      line-height: 16px;
-      color: #27214D;
-      line-height: 30px;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-  }
-
-  .description {
-    font-size: 14px;
-    color: #5D577E;
-    margin-bottom: 32px;
-    text-align: left;
-    margin-top: 14px;
-    line-height: 24px;
-  }
-
-  .action-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-    /* 确保 action buttons 始终在底部 */
-
-    .like-button {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-color: #F3F1F1;
-      cursor: pointer;
+    .go-back {
+      position: absolute;
+      top: 20px;
+      left: 24px;
       display: flex;
       align-items: center;
-      justify-content: center;
-
-      img {
-        width: 24px;
-        height: 24px;
-      }
-    }
-
-    .add-to-basket {
-      background-color: #FFA451;
+      gap: 8px;
       color: white;
-      border-radius: 10px;
-      /* Modified line */
-      padding: 12px 24px;
-      font-weight: bold;
       font-size: 16px;
-      display: flex;
-      /* Add flex display */
-      align-items: center;
-      /* Vertically center */
-      justify-content: center;
-      /* Horizontally center */
-      gap: 4px;
-      width: 219px;
-      /* Add width */
-      height: 56px;
-      /* Add height */
+      cursor: pointer;
+      color: #27214D;
+      background-color: white;
+      border-radius: 100px;
+      img{
+        width: 10px;
+        height: 20px;
+        margin-left: 4px;
+      }
+      span {
+        line-height: 20px;
+      }
+    }
 
-      img {
-        width: 16px;
-        height: 16px;
+    .go-back-button,
+    .go-back {
+      padding: 6px 8px;
+    }
+  }
+
+  .product-info-container {
+    background-color: white;
+    border-radius: 24px 24px 0 0;
+    padding: 24px;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #F3F1F1;
+    }
+
+    .product-name {
+      margin-top: 40px;
+      font-size: 24px;
+      font-weight: 550;
+      color: #27214D;
+      margin-bottom: 16px;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .add {
+        position: relative;
+        width: 32px;
+        height: 32px;
+
+        .circle-icon {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 32px;
+          height: 32px;
+        }
+
+        .inner-icon {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 16px;
+          height: 16px;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .minus {
+        position: relative;
+        width: 32px;
+        height: 32px;
+
+        .circle-icon {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 32px;
+          height: 32px;
+        }
+
+        .inner-icon {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 16px;
+          height: 16px;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .qty-number {
+        margin-left: 24px;
+        margin-right: 24px;
+        font-size: 24px;
+      }
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #27214D;
+    }
+
+    .combo-contains {
+      font-size: 18px;
+      color: #27214D;
+      margin-bottom: 16px;
+      line-height: 30px;
+      margin-top: 16px;
+      position: relative;
+    }
+
+    .combo-contains::after {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 2px;
+      background: @primary-color;
+      margin-top: 8px;
+    }
+
+    .ingredients {
+      display: flex;
+      justify-content: left;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #F3F1F1;
+      span {
+        line-height: 16px;
+        color: #27214D;
+        line-height: 30px;
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .description {
+      font-size: 14px;
+      color: #5D577E;
+      margin-bottom: 32px;
+      text-align: left;
+      margin-top: 14px;
+      line-height: 24px;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+
+      .like-button {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: #F3F1F1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .add-to-basket {
+        background-color: #FFA451;
+        color: white;
+        border-radius: 10px;
+        padding: 12px 24px;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        width: 219px;
+        height: 56px;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
   }

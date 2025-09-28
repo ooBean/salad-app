@@ -27,7 +27,6 @@ const ProductDetail: React.FC = () => {
         <div className='product-info'>
           <div className="quantity-selector">
             <div className='add'>
-              {/* 圆圈按钮，内部的“加号”居中显示 */}
               <img className="circle-icon" src={circleAdd} alt="circle add" />
               <img className="inner-icon" src={add} alt="add" />
             </div>
