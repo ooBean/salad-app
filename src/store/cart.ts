@@ -6,6 +6,7 @@ interface CartItem {
   price: number;
   quantity: number;
   image: string;
+  bgColor?: string; // 添加背景色属性
 }
 
 interface CartState {
