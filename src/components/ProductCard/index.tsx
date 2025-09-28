@@ -4,6 +4,7 @@ import like from '@/assets/svg/like.svg';
 import circleAdd from '@/assets/svg/circle-add.svg';
 import add from '@/assets/svg/add.svg';
 import { Product } from '@/store/product';
+import arrow from '@/assets/svg/arrow.svg';
 
 interface ProductCardProps {
   product: Product;
@@ -22,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, variant = 'large', o
   };
 
   return (
-    <div 
+    <div
       className={`product-card ${variant}`}
       style={{ backgroundColor: variant === 'small' ? bgColor : undefined }}
     >
@@ -40,4 +41,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, variant = 'large', o
       </div>
     </div>
   );
-};export default ProductCard;
+}; export default ProductCard;

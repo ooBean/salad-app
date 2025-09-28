@@ -1,0 +1,36 @@
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background-color: #FFF2E7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s, background-color 0.3s;
+  z-index: 10;
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  img {
+    width: 8px;
+    filter: invert(25%) sepia(0%) saturate(7500%) hue-rotate(240deg) brightness(50%) contrast(95%);
+  }
+
+  &:hover {
+    background-color: #FADFC5;
+  }
+}
