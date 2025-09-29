@@ -6,9 +6,10 @@ import './index.less';
 type PaymentModalProps = {
   visible: boolean;
   onClose: () => void;
+  onOrderComplete: () => void; // Add this line
 };
 
-const PaymentModal: React.FC<PaymentModalProps> = ({ visible, onClose }) => {
+const PaymentModal: React.FC<PaymentModalProps> = ({ visible, onClose, onOrderComplete }) => {
   const navigate = useNavigate();
   const [view, setView] = useState<'card' | 'delivery'>('card');
 
@@ -22,6 +23,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ visible, onClose }) => {
   };
 
   const handleOrder = () => {
+    onOrderComplete(); // Call the new prop
     handleClose();
     navigate('/order-complete');
   };

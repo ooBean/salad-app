@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { incrementQuantity, decrementQuantity } from '@/store/cart';
+import { incrementQuantity, decrementQuantity, clearCart } from '@/store/cart';
 import { motion, AnimatePresence } from 'framer-motion'; // 引入 framer-motion
 import arrow from '@/assets/svg/arrow.svg';
 import minus from '@/assets/svg/minus.svg';
@@ -25,6 +25,9 @@ const Cart: React.FC = () => {
     };
   }, []);
 
+  const handleOrderComplete = () => {
+    dispatch(clearCart());
+  };
 
   const totalValue = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const total = totalValue.toLocaleString();
@@ -103,9 +106,10 @@ const Cart: React.FC = () => {
           </button>
         </div>
       </div>
-      <PaymentModal 
-        visible={isModalVisible} 
-        onClose={() => setIsModalVisible(false)} 
+      <PaymentModal
+        visible={isModalVisible}
+        onClose={() => setIsModalVisible(false)}
+        onOrderComplete={handleOrderComplete}
       />
     </div>
   );
