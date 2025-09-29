@@ -97,7 +97,7 @@ const Cart: React.FC = () => {
           </div>
           <button
             className="checkout-btn"
-            onClick={cartItems.length > 0 ? () => setIsModalVisible(true) : () => navigate('/')}
+            onClick={cartItems.length > 0 ? () => setIsModalVisible(true) : () => navigate('/home')}
           >
             {cartItems.length > 0 ? 'Checkout' : 'Go Shopping'}
           </button>
