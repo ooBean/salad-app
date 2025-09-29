@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.less';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -13,12 +13,29 @@ const Auth: React.FC = () => {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    const savedName = sessionStorage.getItem('salad_userName');
+    if (savedName) {
+      setName(savedName);
+      dispatch(setReduxName(savedName));
+    }
+  }, [dispatch]);
+
   const handleStartOrdering = () => {
-    if (name.trim()) {
-      dispatch(setReduxName(name));
+    const trimmedName = name.trim();
+    if (trimmedName) {
+      dispatch(setReduxName(trimmedName));
+      sessionStorage.setItem('salad_userName', trimmedName);
       navigate('/home');
     } else {
-      setError('Name cannot be empty.');
+      if (error) { // This is the second attempt
+        const defaultName = 'Bean';
+        dispatch(setReduxName(defaultName));
+        sessionStorage.setItem('salad_userName', defaultName);
+        navigate('/home');
+      } else { // This is the first attempt
+        setError('Name cannot be empty.');
+      }
     }
   };
 
