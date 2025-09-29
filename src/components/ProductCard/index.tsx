@@ -4,7 +4,7 @@ import like from '@/assets/svg/like.svg';
 import circleAdd from '@/assets/svg/circle-add.svg';
 import add from '@/assets/svg/add.svg';
 import { Product } from '@/store/product';
-import arrow from '@/assets/svg/arrow.svg';
+
 
 interface ProductCardProps {
   product: Product;
