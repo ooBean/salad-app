@@ -6,7 +6,7 @@ import { addItem } from '@/store/cart';
 import './index.less';
 import menu from '@/assets/svg/menu.svg';
 import search from '@/assets/svg/search.svg';
-import filter from '@/assets/svg/filter.svg';
+
 import shoppingBasket from '@/assets/svg/shopping-basket.svg';
 import ProductCard from '@/components/ProductCard';
 import { Product, hottestProducts, ProductCategory, ProductTag } from '@/store/product';
