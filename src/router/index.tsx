@@ -47,7 +47,9 @@ const router = createBrowserRouter([
     path: '/profile',
     element: <Profile />,
   },
-]);
+],
+  { basename: '/salad-app' });
+
 
 const AppRouter = () => <RouterProvider router={router} />;
 
