@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import Splash from '@/pages/Splash';
 import Welcome from '@/pages/Welcome';
 import Auth from '@/pages/Auth';
@@ -46,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: '/profile',
     element: <Profile />,
+  },
+  {
+    path: '*',
+    element: <Navigate to="/" replace />,
   },
 ],
   { basename: '/salad-app' });
