@@ -54,6 +54,13 @@ To get a local copy up and running, follow these simple steps.
   npm run dev
 ```
 
+## 🚀 部署
+
+该项目已部署到线上，您可以通过以下链接访问：
+
+- [线上部署地址](http://bean.binballs.top/salad-app/)
+- [GitHub 仓库](https://github.com/ooBean/salad-app)
+
 ## 🎨 设计
 
 非常感谢 [Adolphus Chris](https://www.figma.com/@dev_khris) 提供的精美设计。原始设计文件可以在 [Figma 社区](https://www.figma.com/community/file/875021148028188871)找到。
