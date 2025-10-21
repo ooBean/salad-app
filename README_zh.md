@@ -2,6 +2,9 @@
 
 ![SaladGo GIF](https://raw.githubusercontent.com/ooBean/AssetHub/main/gifs/saladGo/saladGo.gif)
 
+🌐 **[English Version →](./README.md)**
+🇨🇳 **[簡體中文版本 →](./README_zh.md)**
+
 一个现代化的、响应式的 Web 应用程序，用于浏览和订购新鲜沙拉，使用 React、TypeScript 和 Vite 构建。该项目展示了从产品发现到结账的完整用户流程。
 
 ## ✨ 功能
