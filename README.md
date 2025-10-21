@@ -2,6 +2,9 @@
 
 ![SaladGo GIF](https://raw.githubusercontent.com/ooBean/AssetHub/main/gifs/saladGo/saladGo.gif)
 
+🌐 **[English Version →](./README.md)**
+🇨🇳 **[簡體中文版本 →](./README_zh.md)**
+
 A modern, responsive web application for browsing and ordering fresh salads, built with React, TypeScript, and Vite. This project showcases a complete user flow from product discovery to checkout.
 
 ## ✨ Features
