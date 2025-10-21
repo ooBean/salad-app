@@ -1,5 +1,7 @@
 # 🥗 SaladGo - Fresh Salad Delivery App
 
+![SaladGo GIF](https://raw.githubusercontent.com/ooBean/AssetHub/main/gifs/saladGo/saladGo.gif)
+
 A modern, responsive web application for browsing and ordering fresh salads, built with React, TypeScript, and Vite. This project showcases a complete user flow from product discovery to checkout.
 
 ## ✨ Features
@@ -52,7 +54,7 @@ To get a local copy up and running, follow these simple steps.
   Run the app in the development mode. Open [http://localhost:5173](http://localhost:5173) to view it in the browser. The page will reload if you make edits.
   ```sh
   npm run dev
-```
+  ```
 
 ## 🚀 部署
 
