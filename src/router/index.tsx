@@ -51,9 +51,7 @@ const router = createBrowserRouter([
     path: '*',
     element: <Navigate to="/" replace />,
   },
-],
-  { basename: '/salad-app' });
-
+]);
 
 const AppRouter = () => <RouterProvider router={router} />;
 
