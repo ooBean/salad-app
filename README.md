@@ -63,7 +63,7 @@ To get a local copy up and running, follow these simple steps.
 
 该项目已部署到线上，您可以通过以下链接访问：
 
-- [线上部署地址](http://bean.binballs.top/salad-app/)
+- [线上部署地址](https://salad-copsj7hmj-oopeachboys-projects.vercel.app)
 - [GitHub 仓库](https://github.com/ooBean/salad-app)
 
 ## 🎨 设计
