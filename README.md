@@ -1,23 +1,44 @@
+---
+keywords: salad app, fresh salad delivery, React TypeScript Vite, online salad ordering, food delivery app, salad ordering app, salad delivery service, healthy food app
+---
+
 # 🥗 SaladGo - Fresh Salad Delivery App
+
+> A modern, responsive web application for browsing and ordering fresh salads, built with React, TypeScript, and Vite. Perfect for healthy food lovers looking for convenient salad delivery options.
 
 ![SaladGo GIF](https://raw.githubusercontent.com/ooBean/AssetHub/main/gifs/saladGo/saladGo.gif)
 
 🌐 **[English Version →](./README.md)**
 🇨🇳 **[簡體中文版本 →](./README_zh.md)**
 
-A modern, responsive web application for browsing and ordering fresh salads, built with React, TypeScript, and Vite. This project showcases a complete user flow from product discovery to checkout.
-
 ## ✨ Features
 
-- **Product Catalog**: Browse a variety of fresh salads with vibrant images and details.
-- **Dynamic Search**: Quickly find salads by name.
-- **Search History**: Previously searched terms are saved as convenient tags for quick access.
-- **Shopping Cart**: Add/remove items and adjust quantities with smooth animations.
-- **State Management**: Centralized cart management using Redux Toolkit.
-- **Checkout Flow**: A simulated multi-step checkout process including payment and delivery details.
-- **Responsive Design**: A mobile-first design that looks great on all screen sizes.
-- **Smooth Animations**: Engaging user interface with animations powered by Framer Motion.
-- **Automated Image Optimization**: All assets are automatically compressed during the build process for better performance.
+### 🍽️ Product Catalog
+Browse a variety of fresh salads with vibrant images and details.
+
+### 🔍 Dynamic Search
+Quickly find salads by name.
+
+### 📝 Search History
+Previously searched terms are saved as convenient tags for quick access.
+
+### 🛒 Shopping Cart
+Add/remove items and adjust quantities with smooth animations.
+
+### 🧠 State Management
+Centralized cart management using Redux Toolkit.
+
+### 💳 Checkout Flow
+A simulated multi-step checkout process including payment and delivery details.
+
+### 📱 Responsive Design
+A mobile-first design that looks great on all screen sizes.
+
+### 🎬 Smooth Animations
+Engaging user interface with animations powered by Framer Motion.
+
+### 🖼️ Automated Image Optimization
+All assets are automatically compressed during the build process for better performance.
 
 ## 🛠️ Tech Stack
 
