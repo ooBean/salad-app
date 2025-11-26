@@ -90,6 +90,18 @@ keywords: 沙拉应用, 新鲜沙拉配送, React TypeScript Vite, 在线沙拉�
 - [线上部署地址](https://salad-copsj7hmj-oopeachboys-projects.vercel.app)
 - [GitHub 仓库](https://github.com/ooBean/salad-app)
 
+### 🔄 CI/CD 自动化部署
+
+本项目已配置 **Vercel CI/CD 自动化部署**，实现以下功能：
+
+- **自动构建**：每次推送到 `main` 分支时，Vercel 会自动触发构建流程
+- **自动部署**：构建成功后自动部署到生产环境
+- **预览部署**：每个 Pull Request 都会生成预览链接，方便测试新功能
+- **零停机部署**：采用蓝绿部署策略，确保用户访问不中断
+- **自动回滚**：如果部署失败，系统会自动回滚到上一个稳定版本
+
+通过 Vercel 的自动化部署，我们实现了真正的 **"一键部署"**，让开发团队可以专注于功能开发，而无需担心部署流程。
+
 ## 🎨 设计
 
 非常感谢 [Adolphus Chris](https://www.figma.com/@dev_khris) 提供的精美设计。原始设计文件可以在 [Figma 社区](https://www.figma.com/community/file/875021148028188871)找到。
